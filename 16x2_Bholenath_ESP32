@@ -55,6 +55,49 @@ byte R_uch_Dot[] = {
   0x03
 };
 
+byte eye_o[] = {
+  0x04,
+  0x0A,
+  0x11,
+  0x15,
+  0x15,
+  0x11,
+  0x0A,
+  0x04
+};
+
+byte eye_c[] = {
+   0x04,
+  0x04,
+  0x04,
+  0x04,
+  0x04,
+  0x04,
+  0x04,
+  0x04
+};
+
+byte eye_oo[] = {
+  0x04,
+  0x0A,
+  0x0A,
+  0x1B,
+  0x1B,
+  0x0A,
+  0x0A,
+  0x04
+};
+
+byte eye_cc[] = {
+  0x04,
+  0x0A,
+  0x11,
+  0x11,
+  0x11,
+  0x11,
+  0x0A,
+  0x04
+};
 void setup() {
   //Define Lcd 16x2 type 
   lcd.begin(16,2);
@@ -63,7 +106,10 @@ void setup() {
   lcd.createChar(2, R_ohm);
   lcd.createChar(3, R_uch);
   lcd.createChar(4, R_uch_Dot);
-  
+  lcd.createChar(5, eye_o);
+  lcd.createChar(6, eye_oo);
+  lcd.createChar(7, eye_cc);
+  lcd.createChar(8, eye_c);
   //Print Jai BholeNath ji on LCD
    lcd.setCursor(0, 0);
   lcd.print("Jai BholeNath Ji");
@@ -78,11 +124,27 @@ void loop() {
   lcd.write(byte(2));
   lcd.setCursor(3, 1);
   lcd.write(byte(3));
-   delay(300);
-  lcd.setCursor(3, 1);
-  lcd.write(byte(4));
+  lcd.setCursor(4, 1);
+  lcd.write(byte(5));
+  lcd.setCursor(5, 1);
+  lcd.write(byte(6));
+  lcd.setCursor(6, 1);
+  lcd.write(byte(7));
+  lcd.setCursor(7, 1);
+  lcd.write(byte(8));
+  //Eye open close 
+  lcd.setCursor(8, 1);
+  lcd.write(byte(8));
+  delay(100);
+  lcd.setCursor(8, 1);
+  lcd.write(byte(6));
+  delay(100);
+  lcd.setCursor(8, 1);
+  lcd.write(byte(7));
+  delay(100);
+  lcd.setCursor(8, 1);
+  lcd.write(byte(5));
   delay(300);
-  lcd.setCursor(3, 1);
-  lcd.write(byte(3));
+
 
 }
