@@ -1,0 +1,19 @@
+#include<LiquidCrystal.h>
+
+//Defining LCD Pins attached to Esp32 in 4 bit mode
+const int Rs=12 ,En=13 ,D4=5, D5=18, D6=19, D7=21;
+
+LiquidCrystal lcd(Rs,En,D4,D5,D6,D7);
+
+void setup() {
+  //Define Lcd 16x2 type 
+  lcd.begin(16,2);
+
+  //BholeNath ji
+  lcd.print("Jai BholeNath Ji");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
