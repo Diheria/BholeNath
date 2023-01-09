@@ -4,16 +4,85 @@
 const int Rs=12 ,En=13 ,D4=5, D5=18, D6=19, D7=21;
 
 LiquidCrystal lcd(Rs,En,D4,D5,D6,D7);
+byte ohm[] = {
+  0x15,
+  0x1F,
+  0x00,
+  0x1B,
+  0x0B,
+  0x1F,
+  0x0B,
+  0x1B
+};
+byte treshul[] = {
+   0x15,
+  0x15,
+  0x15,
+  0x1F,
+  0x04,
+  0x04,
+  0x04,
+  0x04
+};
+byte R_ohm[] = {
+  0x15,
+  0x15,
+  0x15,
+  0x1F,
+  0x04,
+  0x1F,
+  0x11,
+  0x1F
+};
+byte R_uch[] = {
+  0x03,
+  0x06,
+  0x0C,
+  0x1B,
+  0x1B,
+  0x0C,
+  0x06,
+  0x03
+};
+byte R_uch_Dot[] = {
+  0x03,
+  0x06,
+  0x0C,
+  0x18,
+  0x18,
+  0x0C,
+  0x06,
+  0x03
+};
 
 void setup() {
   //Define Lcd 16x2 type 
   lcd.begin(16,2);
-
-  //BholeNath ji
+  lcd.createChar(0, ohm);
+  lcd.createChar(1, treshul);
+  lcd.createChar(2, R_ohm);
+  lcd.createChar(3, R_uch);
+  lcd.createChar(4, R_uch_Dot);
+  
+  //Print Jai BholeNath ji on LCD
+   lcd.setCursor(0, 0);
   lcd.print("Jai BholeNath Ji");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+ lcd.setCursor(0, 1);
+  lcd.write(byte(0));
+  lcd.setCursor(1, 1);
+  lcd.write(byte(1));
+  lcd.setCursor(2, 1);
+  lcd.write(byte(2));
+  lcd.setCursor(3, 1);
+  lcd.write(byte(3));
+   delay(300);
+  lcd.setCursor(3, 1);
+  lcd.write(byte(4));
+  delay(300);
+  lcd.setCursor(3, 1);
+  lcd.write(byte(3));
 
 }
